@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">VotonAndroid</string>
+    <string name="intro_form_create">Intro</string>
+    <string name="details_form_create">Details</string>
+    <string name="next_form_create">Suivant</string>
 </resources>

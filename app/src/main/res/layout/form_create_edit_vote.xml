@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="15dp">
+    android:padding="10dp">
 
     <TextView
         android:id="@+id/textView6"
@@ -25,7 +25,7 @@
         android:id="@+id/textView7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Intro"
+        android:text="@string/intro_form_create"
         android:textAppearance="@android:style/TextAppearance.Large" />
 
     <EditText
@@ -41,7 +41,7 @@
         android:id="@+id/textView8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Details"
+        android:text="@string/details_form_create"
         android:textAppearance="@android:style/TextAppearance.Large" />
 
     <EditText
@@ -57,8 +57,7 @@
         android:id="@+id/button_FormCreateEditVote1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:autoText="true"
         android:fadingEdge="none"
-        android:text="Suivant" />
+        android:text="@string/next_form_create" />
 
 </LinearLayout>
