@@ -1,14 +1,10 @@
-package com.perso.mfaure.votonandroid.CreateEditProp;
+package com.perso.mfaure.votonandroid.createEditProp;
 
-import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.perso.mfaure.votonandroid.R;
@@ -18,7 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class RecyclerAdapterMention extends RecyclerView.Adapter<RecyclerAdapterMention.ViewHolder> {
+public class RecyclerAdapterProp extends RecyclerView.Adapter<RecyclerAdapterProp.ViewHolder> {
 
     public ArrayList titles = new ArrayList<String>(Arrays.asList(
             "Chapter One",
@@ -27,21 +23,36 @@ public class RecyclerAdapterMention extends RecyclerView.Adapter<RecyclerAdapter
             "Chapter Four",
             "Chapter Five",
             "Chapter Six",
-            "Chapter Seven"
+            "Chapter Seven",
+            "Chapter Eight"
+    ));
+
+    public List<String> details = new ArrayList<>(Arrays.asList(
+            "Item one details",
+            "Item two details", "Item three details",
+            "Item four details", "Item file details",
+            "Item six details", "Item seven details",
+            "Item eight details"
+
     ));
 
 
-
+    public void addElement (){
+        titles.add("Nouvel element");
+        details.add("Details");
+       // images.add(R.drawable.card_image);
+        this.notifyItemInserted(getItemCount() - 1);
+        }
 
     class ViewHolder extends RecyclerView.ViewHolder{
 
-        public RadioButton itemRadio;
-        public Button itemColor;
+        public TextView itemTitle;
+        public TextView itemDetail;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            itemRadio = (RadioButton)itemView.findViewById(R.id.radioButtonMention);
-            itemColor = (Button) itemView.findViewById(R.id.circleColorMention);
+            itemTitle = (TextView)itemView.findViewById(R.id.item_title);
+            itemDetail = (TextView)itemView.findViewById(R.id.item_detail);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override public void onClick(View v) {
@@ -59,19 +70,19 @@ public class RecyclerAdapterMention extends RecyclerView.Adapter<RecyclerAdapter
     }
 
 
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.form_mentions_mention, viewGroup, false);
+                .inflate(R.layout.form_list_prop_vote_card, viewGroup, false);
         ViewHolder viewHolder = new ViewHolder(v);
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
-        viewHolder.itemRadio.setText((String)titles.get(i));
-        viewHolder.itemColor.setBackgroundDrawable(viewHolder.itemView.getResources().getDrawable(viewHolder.itemView.getResources().getIdentifier("circle_shape_"+(i+1),"drawable","com.perso.mfaure.votonandroid")));
-
+        viewHolder.itemTitle.setText((String)titles.get(i));
+        viewHolder.itemDetail.setText((String)details.get(i));
     }
 
     @Override

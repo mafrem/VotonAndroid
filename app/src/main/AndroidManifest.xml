@@ -11,24 +11,37 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".CreateEditProp.FragmentMentions">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".createEditProp.FragmentForm"
+            android:parentActivityName=".MainActivity"
+            tools:targetApi="jelly_bean">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        </activity>
+        <activity android:name=".createEditProp.FragmentListProp"
+            android:parentActivityName=".createEditProp.FragmentForm"
+            tools:targetApi="jelly_bean">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".createEditProp.FragmentForm" />
+
+        </activity>
+        <activity android:name=".createEditProp.FragmentMentions"
+            android:parentActivityName=".createEditProp.FragmentListProp"
+            tools:targetApi="jelly_bean">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".createEditProp.FragmentListProp" />
+
         </activity>
 
-        <activity android:name=".CreateEditProp.FragmentListProp">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
         <activity android:name=".MainActivity">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

@@ -1,13 +1,19 @@
 package com.perso.mfaure.votonandroid;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
+import com.perso.mfaure.votonandroid.createEditProp.FragmentForm;
 import com.perso.mfaure.votonandroid.structure.Proposition;
 import com.perso.mfaure.votonandroid.structure.Vote;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +23,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         List<Vote> laListe = populate();
+
+        Button b = (Button) findViewById(R.id.button);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendMessage(view, FragmentForm.class);
+            }
+        });
 
     }
 
@@ -46,5 +60,15 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+    public void sendMessage(View view, Class classe) {
+        Intent intent = new Intent(this, classe);
+        intent.putExtra(EXTRA_MESSAGE, "Valeur recuperable de l'autre cote");
+        startActivity(intent);
+        //this.finish();
+
+    }
+
 
 }

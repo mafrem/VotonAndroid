@@ -1,4 +1,4 @@
-package com.perso.mfaure.votonandroid.CreateEditProp;
+package com.perso.mfaure.votonandroid.createEditProp;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,9 +7,6 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.LinearLayout;
 
 import com.perso.mfaure.votonandroid.R;
-import com.perso.mfaure.votonandroid.structure.Vote;
-
-import java.util.List;
 
 public class FragmentMentions extends Activity {
 
