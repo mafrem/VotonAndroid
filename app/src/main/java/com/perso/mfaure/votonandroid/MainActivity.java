@@ -3,11 +3,48 @@ package com.perso.mfaure.votonandroid;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.perso.mfaure.votonandroid.structure.Proposition;
+import com.perso.mfaure.votonandroid.structure.Vote;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        List<Vote> laListe = populate();
+
     }
+
+    public ArrayList<Vote> populate(){
+        Proposition p1 = new Proposition("La prop1", "Introduction", "Details", new ArrayList<Integer>());
+        Proposition p2 = new Proposition("La prop2", "Introduction", "Details", new ArrayList<Integer>());
+        Proposition p3 = new Proposition("La prop3", "Introduction", "Details", new ArrayList<Integer>());
+        Proposition p4 = new Proposition("La prop4", "Introduction", "Details", new ArrayList<Integer>());
+
+        List<Proposition> lesPropositions1 = new ArrayList<Proposition>();
+        lesPropositions1.add(p1);
+        lesPropositions1.add(p2);
+        lesPropositions1.add(p3);
+        lesPropositions1.add(p4);
+        List<Proposition> lesPropositions2 = new ArrayList<Proposition>();
+        lesPropositions1.add(p1);
+        lesPropositions1.add(p3);
+
+        Vote vote1 = new Vote(lesPropositions1, "", "Vote1", "resumé du vote",new ArrayList<String>());
+        Vote vote2 = new Vote(lesPropositions2, "", "Vote2", "resumé du vote 2",new ArrayList<String>());
+
+
+        List<Vote> laListe = new ArrayList<Vote>();
+        laListe.add(vote1);
+        laListe.add(vote2);
+        return (ArrayList<Vote>)laListe;
+
+
+    }
+
 }
